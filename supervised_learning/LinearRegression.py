@@ -34,6 +34,11 @@ diabetes_X_test = diabetes_X[-20:]
 diabetes_Y_train = diabetes.target[: -20]
 diabetes_Y_test = diabetes.target[-20:]
 
+# diabetes_X_train = [[1], [2], [3]]
+# diabetes_X_test = [[4], [5]]
+# diabetes_Y_train = [[1], [2], [3]]
+# diabetes_Y_test = [[4], [5]]
+
 model = linear_model.LinearRegression()
 model.fit(diabetes_X_train, diabetes_Y_train)
 diabetes_Y_pred = model.predict(diabetes_X_test)
