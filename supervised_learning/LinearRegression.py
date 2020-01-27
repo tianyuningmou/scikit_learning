@@ -21,8 +21,8 @@ MODIFIED: : @Time : 2018/5/25 下午3:00
 最小二乘法的复杂度：如果X是一个size为(n, p)的矩阵，设n>=p，则该方法的复杂度为O(np^2)
 """
 
-from matplotlib import pyplot as plt
 import numpy as np
+from matplotlib import pyplot as plt
 from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 
