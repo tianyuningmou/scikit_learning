@@ -22,6 +22,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 from sklearn.linear_model import ARDRegression, LinearRegression
 
+
 np.random.seed(0)
 n_samples, n_features = 100, 100
 X = np.random.randn(n_samples, n_features)

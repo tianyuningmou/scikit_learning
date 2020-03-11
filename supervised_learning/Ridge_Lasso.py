@@ -31,12 +31,14 @@ def _weights(x, dx=1, orig=0):
     alpha = (x - orig - floor_x * dx) / dx
     return np.hstack((floor_x, floor_x + 1)), np.hstack((1 - alpha, alpha))
 
+
 def generate_center_coordinate(l_x):
     X, Y = np.mgrid[: l_x, : l_x].astype(np.float64)
     center = l_x / 2
     X += 0.5 - center
     Y += 0.5 - center
     return X, Y
+
 
 def build_projection_operator(l_x, n_dir):
     X, Y = generate_center_coordinate(l_x)
@@ -55,6 +57,7 @@ def build_projection_operator(l_x, n_dir):
     proj_operator = sparse.coo_matrix((weights, (camera_inds, data_inds)))
     return proj_operator
 
+
 def generate_synthetic_data():
     rs = np.random.RandomState(0)
     n_pts = 36
@@ -66,6 +69,7 @@ def generate_synthetic_data():
     mask = ndimage.gaussian_filter(mask, sigma=l / n_pts)
     res = np.logical_and(mask > mask.mean(), mask_outer)
     return np.logical_xor(res, ndimage.binary_erosion(res))
+
 
 l = 128
 proj_operator = build_projection_operator(l, l / 7.)
